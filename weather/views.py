@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def forecast(request):
-    return render(request, '/weather/templates/weather/forecast.html')
+    return render(request, 'weather/forecast.html')
 
 def forecast_alert(request):
     return render(request, 'weather/forecast-alert.html')
