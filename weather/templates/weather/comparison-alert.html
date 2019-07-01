@@ -1,15 +1,39 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Comparison - Alert!</title>
-	
-	<link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
-
-</head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/map.gif?raw=true');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
 <body>
-	<!-- your comparison interface with alert here -->
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-black">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+
+  <div class="w3-display-bottomright w3-padding-large">
+    <div class="row">
+      <i class="fa fa-search-plus"></i>
+    </div>
+    <div class="row">
+      <i class="fa fa-search-minus"></i>
+    </div>
+    
+    
+  </div>
+</div>
+
 </body>
 </html>
