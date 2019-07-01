@@ -1,132 +1,105 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"> {% load static %}
-<style>
-  #topcon {
-    height=10000px;
-    background-color: #C0D2DA;
-    background: #efefef url(https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/Sunbackground.jpg?raw=true);
-  }
-
-  #search {
-    height=1000px;
-    background-color: blue;
-  }
-
-  #setting {
-    background-color: pink;
-  }
-
-  #man {
-    height: 1200px;
-    background: #efefef url(https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/Mantransparent.jpg?raw=true) center;
-  }
-
-  #downcon {
-    height=1000px;
-    background-color: pink;
-    background: #efefef url(https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/yellow.jpg?raw=true);
-  }
-  #weathers{
-   background-color: navy; 
-  }
-</style>
 <!DOCTYPE html>
 <html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1200px">
 
-<head>
-  <title>Forecast</title>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>Setting</b></h3>
+  </div>
+  
+  <div class="w3-container w3-text-grey" id="jeans">
+    <p>Cutstomize your weather report man by telling him the range of temperature corresponding to clothes</p>
+  </div>
+  
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+  <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/themometer.png?raw=true" style = "width:190%">
+  <!--edit here to add the settings-->
+</nav>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-white w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide">  Weather Report Man</div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="glyphicon glyphicon-cog"></i></a>
+</header>
 
-</head>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<body class="text-center" style="padding: 0PX;">
-  <div class="container" id="topcon">
-    <!-- interface: the forcast -->
-    <!--row1-->
-    <div class="row" id="topsec">
-      <!--col1-->
-      <div class="col-xs-2" id="mapButton">
-        <button type="button" class="btn btn-xs btn-danger">
-  <span class="glyphicon glyphicon-map-marker"></span>
-</button>
-      </div>
-      <!--col2-->
-      <div class="col-xs-7" id="search" style="padding = 100PX;">
-        <!-- Search form -->
-        <form class="form-inline md-form form-sm mt-0">
-          <i class="fas fa-search" aria-hidden="true"></i>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  
+  
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+  
+    <header class="w3-container x3-xlarge">
+    
+      <!-- Search form -->
+        <form class="form-inline md-form form-sm mt-0">  
           <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
         </form>
-        <!-- Search form -->
+      <!-- Search form --></p>
+    </header>
+    <p class="w3-right" >
+      <div class="w3-container w3-text-grey" id="jeans" style = "font-size: 15px;">
+         <p> <i class="glyphicon glyphicon-map-marker"></i> map for comparison</p>
+         
       </div>
-      <!--col3-->
-      <div class="col-xs-1"></div>
-      <div class="col-xs-1" id="setting">
-        <button type="button" class="btn btn-xs btn-danger">
-          <span class="glyphicon glyphicon-cog"></span>
-        </button>
-      </div>
-    </div>
+      
+    </p>
+  </header>
 
-    <!--row2-->
-    <div class="row" id="midsec">
-      <!--col1-->
-      <div class="col-xs-3">
-        <div class = "row" id="talk1">
-          <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/talk.jpg?raw=true">
-        </div>
-         <div class = "row" id="talk2">
-          <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/talk.jpg?raw=true">
-        </div>  
-      </div>
-      <!--col2-->
-      <div class="col-xs-5" id="man" >
-      </div>
-      <!--col3-->
-      <div class="col-xs-1">
-         <div class = "row" id="talk2">
-          <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/talk.jpg?raw=true">
-        </div>  
-         <div class = "row" id="talk2">
-          <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/talk.jpg?raw=true">
-        </div>  
-      </div>
-    </div>
+   <div class="w3-display-container w3-text-black">
+    <img src="https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/manfigure.png?raw=true" alt="Lights" style="width:100%">
     
-    <div class="contanier" id="downcon">
-    <div class="row" id="timerow">
-      <div class="col-xs-2" id="goleft">
-        <button type="button" class="btn btn-xs btn-danger">
-          <span class="glyphicon glyphicon-triangle-left"></span>
-        </button>
-      </div>
-      <div class="col-xs-8" id="timecol">
-        <h1>
-           6.30.2019
-        </h1>
-      </div>
-      <div class="col-xs-1" id="goright">
-         <button type="button" class="btn btn-xs btn-danger">
-          <span class="glyphicon glyphicon-triangle-right"></span>
-        </button>
-      </div>
-    </div>
+     <div class="w3-display-bottommiddle w3-container"><p>6/30/2019</p></div>
+     <div class="w3-center">
+     <button class="w3-button" onclick="plusDivs(-1)">&#10094; Yesterday</button>
+     <button class="w3-button" onclick="plusDivs(-1)" style="font-size: 20px;"><p>6/30/2019</p></button>
+     <button class="w3-button" onclick="plusDivs(1)">Tomorrow&#10095;</button>
+
+  </div>
+  
+  
+
+  
+  
+   <div class="contanier" id="downcon">
+
     <div class = "row" id="weathers" >
       <div class = "col-xs-2">
-        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 400px>
+        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 350px>
       </div>
       <div class = "col-xs-2">
-        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 400px>
+        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 350px>
       </div>
       <div class = "col-xs-3">
         <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 400px>
       </div>
       <div class = "col-xs-2">
-        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 400px>
+        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 350px>
       </div>
       <div class = "col-xs-2">
-        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 400px>
+        <img src = "https://github.com/cs160-summer-2019/project-1-starter-code-zding52/blob/master/image/cloudtesting.jpg?raw=true" height = 350px>
       </div>
     </div>
   </div>
@@ -134,6 +107,35 @@
     <!--row3-->
   </div>
   
-</body>
+  
+  
+  
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
 </html>
